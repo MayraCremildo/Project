@@ -3,7 +3,7 @@ import { CATEGORIES } from '../../lib/storage';
 import { formatMoney } from '../../lib/currency';
 
 function categoryMeta(id) {
-  return CATEGORIES.find((c) => c.id === id) || CATEGORIES[1];
+  return CATEGORIES.find((c) => c.id === id) || CATEGORIES[0];
 }
 
 function formatDate(iso) {

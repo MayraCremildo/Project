@@ -8,7 +8,7 @@ export default function BudgetOverview({ salary, allocations, expenses, currency
   }, {});
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4" data-testid="budget-overview">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4" data-testid="budget-overview">
       {CATEGORIES.map((cat) => {
         const allocated = (salary * (allocations[cat.id] || 0)) / 100;
         const spent = spentByCategory[cat.id] || 0;

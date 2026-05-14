@@ -1,15 +1,13 @@
 const KEY = 'finance_app_state_v1';
 
 export const DEFAULT_ALLOCATIONS = {
-  investimentos: 20,
-  necessidades: 50,
-  despesas_fixas: 20,
-  lazer: 10,
+  investimentos: 30,
+  despesas_fixas: 50,
+  lazer: 20,
 };
 
 export const CATEGORIES = [
   { id: 'investimentos', label: 'Investimentos', color: '#4A7C59' },
-  { id: 'necessidades', label: 'Necessidades', color: '#738290' },
   { id: 'despesas_fixas', label: 'Despesas Fixas', color: '#D49A89' },
   { id: 'lazer', label: 'Lazer', color: '#E3C16F' },
 ];
@@ -45,7 +43,25 @@ export function loadState() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return { ...emptyState };
     const parsed = JSON.parse(raw);
-    return { ...emptyState, ...parsed };
+    const state = { ...emptyState, ...parsed };
+    // Migrate legacy "necessidades" category into "despesas_fixas"
+    if (state.months) {
+      Object.keys(state.months).forEach((mk) => {
+        const m = state.months[mk] || {};
+        if (m.allocations && 'necessidades' in m.allocations) {
+          const nec = Number(m.allocations.necessidades) || 0;
+          m.allocations.despesas_fixas = (Number(m.allocations.despesas_fixas) || 0) + nec;
+          delete m.allocations.necessidades;
+        }
+        if (Array.isArray(m.expenses)) {
+          m.expenses = m.expenses.map((e) =>
+            e.category === 'necessidades' ? { ...e, category: 'despesas_fixas' } : e
+          );
+        }
+        state.months[mk] = m;
+      });
+    }
+    return state;
   } catch {
     return { ...emptyState };
   }

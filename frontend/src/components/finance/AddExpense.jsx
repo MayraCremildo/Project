@@ -6,7 +6,7 @@ import { getCurrencySymbol } from '../../lib/currency';
 export default function AddExpense({ currency, onAdd }) {
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
-  const [category, setCategory] = useState(CATEGORIES[1].id);
+  const [category, setCategory] = useState(CATEGORIES[0].id);
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
