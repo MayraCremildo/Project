@@ -7,6 +7,7 @@ import AddExpense from './AddExpense';
 import ExpensesList from './ExpensesList';
 import RemainingBalance from './RemainingBalance';
 import MonthlyReport from './MonthlyReport';
+import EditProfileModal from './EditProfileModal';
 import { ensureMonth, getMonthKey, saveState, resetState, DEFAULT_ALLOCATIONS } from '../../lib/storage';
 
 export default function Dashboard({ initialState, onReset }) {
@@ -16,6 +17,7 @@ export default function Dashboard({ initialState, onReset }) {
     return ensureMonth(s, getMonthKey());
   });
   const [activeMonth, setActiveMonth] = useState(getMonthKey());
+  const [editOpen, setEditOpen] = useState(false);
 
   useEffect(() => {
     saveState(state);
@@ -66,6 +68,18 @@ export default function Dashboard({ initialState, onReset }) {
         currency={state.currency}
         onCurrencyChange={(c) => setState((p) => ({ ...p, currency: c }))}
         onReset={handleReset}
+        onEditProfile={() => setEditOpen(true)}
+      />
+
+      <EditProfileModal
+        open={editOpen}
+        initialName={state.userName}
+        initialCurrency={state.currency}
+        onClose={() => setEditOpen(false)}
+        onSave={({ name, currency }) => {
+          setState((p) => ({ ...p, userName: name, currency }));
+          setEditOpen(false);
+        }}
       />
 
       <main className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-8 md:py-12 space-y-8 fade-up">
