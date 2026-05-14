@@ -1,0 +1,74 @@
+{
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "colors": {
+    "background": "#F9F8F6",
+    "surface": "#FFFFFF",
+    "surface_secondary": "#F0EFEB",
+    "text_primary": "#2A2A28",
+    "text_secondary": "#6B6A68",
+    "border": "#E5E4E2",
+    "primary": "#4A7C59",
+    "primary_hover": "#3A5A40",
+    "danger": "#D49A89",
+    "categories": {
+      "investimentos": "#4A7C59",
+      "necessidades": "#738290",
+      "despesas_fixas": "#D49A89",
+      "lazer": "#E3C16F"
+    }
+  },
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "Work Sans, sans-serif",
+    "h1": "text-4xl md:text-5xl font-light tracking-tight text-[#2A2A28]",
+    "h2": "text-2xl md:text-3xl font-medium tracking-tight text-[#2A2A28]",
+    "h3": "text-xl md:text-2xl font-medium tracking-tight text-[#2A2A28]",
+    "h4": "text-lg font-medium text-[#2A2A28]",
+    "body": "text-base text-[#6B6A68] leading-relaxed",
+    "label": "text-xs font-semibold uppercase tracking-[0.2em] text-[#6B6A68]"
+  },
+  "spacing": {
+    "container_padding": "p-6 md:p-12 lg:p-16",
+    "card_padding": "p-8",
+    "gap_standard": "gap-8"
+  },
+  "surfaces": {
+    "card_default": "bg-white rounded-3xl border border-[#E5E4E2] shadow-sm",
+    "card_hover": "hover:-translate-y-1 hover:shadow-md transition-all duration-300",
+    "glass_header": "backdrop-blur-xl bg-[#F9F8F6]/80 border-b border-[#E5E4E2]/50 sticky top-0 z-50",
+    "input_field": "bg-[#F0EFEB] rounded-2xl border-none focus:ring-2 focus:ring-[#4A7C59] focus:bg-white transition-colors text-[#2A2A28] p-4 outline-none w-full"
+  },
+  "components": {
+    "button_primary": "bg-[#4A7C59] text-white rounded-2xl px-6 py-4 font-medium hover:bg-[#3A5A40] transition-colors shadow-sm",
+    "button_secondary": "bg-[#F0EFEB] text-[#2A2A28] rounded-2xl px-6 py-4 font-medium hover:bg-[#E5E4E2] transition-colors",
+    "badge": "rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
+  },
+  "layout": {
+    "dashboard_grid": "grid grid-cols-1 md:grid-cols-12 gap-8",
+    "col_span_hero": "col-span-full md:col-span-12 lg:col-span-8",
+    "col_span_side": "col-span-full md:col-span-12 lg:col-span-4"
+  },
+  "icons": {
+    "library": "@phosphor-icons/react",
+    "weight": "regular"
+  },
+  "charts": {
+    "library": "recharts",
+    "style": "clean, minimal grid lines, no default recharts tooltip borders, use custom tooltip with backdrop-blur"
+  },
+  "instructions_to_main_agent": [
+    "1. Setup Tailwind Config: Add the custom colors (background, surface, text_primary, text_secondary, border, primary, danger, categories) to tailwind.config.js.",
+    "2. Fonts: Add @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Work+Sans:wght@400;500;600&display=swap'); to index.css and map them in Tailwind config.",
+    "3. Icons: Install @phosphor-icons/react and lucide-react (if shadcn uses it).",
+    "4. Charts: Install recharts for the monthly report section.",
+    "5. App State (localStorage): Build a state management (e.g., Zustand or React Context) to manage: user name, selected currency, monthly salary, category percentage allocations, list of expenses (with date, desc, value, category), and selected month for the report.",
+    "6. Currency Formatting: Use Intl.NumberFormat to format values dynamically based on the selected currency (BRL, USD, EUR, GBP, JPY).",
+    "7. Initial Screen: If the user name is not found in localStorage, show a clean onboarding screen asking for Name.",
+    "8. Header: Display greeting 'Olá, {name}' on the left, and a currency selector dropdown on the right.",
+    "9. Dashboard Layout (Bento Grid): Top area for 'Remaining Balance' and total salary overview. Next row: Category percentage allocation inputs and budget cards (showing allocated amount based on %, and remaining after expenses). Next row: 'Add Expense' form and 'Recent Expenses' list.",
+    "10. Monthly Reports: A dedicated section at the bottom allowing month selection, showing a pie chart of expenses per category, and a bar chart comparing total expenses vs budget.",
+    "11. Testing: Add 'data-testid' to ALL interactive elements (inputs, buttons, selects, list items).",
+    "12. Code structure: Use .js or .jsx extensions (not .tsx)."
+  ]
+}
