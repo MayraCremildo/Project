@@ -30,7 +30,7 @@ export function formatMonthLabel(monthKey) {
 
 const emptyState = {
   userName: '',
-  currency: 'BRL',
+  currency: 'MZN',
   months: {},
 };
 

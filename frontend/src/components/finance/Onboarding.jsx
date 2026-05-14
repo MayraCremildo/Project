@@ -4,7 +4,7 @@ import { Sprout, ArrowRight } from 'lucide-react';
 
 export default function Onboarding({ onSubmit }) {
   const [name, setName] = useState('');
-  const [currency, setCurrency] = useState('BRL');
+  const [currency, setCurrency] = useState('MZN');
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -31,12 +31,9 @@ export default function Onboarding({ onSubmit }) {
           <span className="font-heading text-lg font-medium text-earth-text tracking-tight">Orçamento</span>
         </div>
 
-        <h1 className="font-heading text-4xl md:text-5xl font-light tracking-tight text-earth-text mb-3 leading-tight">
-          Bem-vindo.
+        <h1 className="font-heading text-4xl md:text-5xl font-light tracking-tight text-earth-text mb-10 leading-tight">
+          Qual é o seu nome?
         </h1>
-        <p className="text-earth-muted text-base md:text-lg mb-12 max-w-md leading-relaxed">
-          Antes de começar, conte-nos como devemos chamar você e qual moeda você usa no dia a dia.
-        </p>
 
         <form onSubmit={handleSubmit} className="space-y-7">
           <div>

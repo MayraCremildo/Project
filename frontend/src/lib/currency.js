@@ -1,19 +1,12 @@
 export const CURRENCIES = [
+  { code: 'MZN', symbol: 'MT', label: 'Metical Moçambicano', locale: 'pt-MZ' },
+  { code: 'AOA', symbol: 'Kz', label: 'Kwanza Angolano', locale: 'pt-AO' },
   { code: 'BRL', symbol: 'R$', label: 'Real Brasileiro', locale: 'pt-BR' },
-  { code: 'USD', symbol: '$', label: 'US Dollar', locale: 'en-US' },
-  { code: 'EUR', symbol: '€', label: 'Euro', locale: 'de-DE' },
-  { code: 'GBP', symbol: '£', label: 'British Pound', locale: 'en-GB' },
-  { code: 'JPY', symbol: '¥', label: 'Japanese Yen', locale: 'ja-JP' },
-  { code: 'CAD', symbol: 'C$', label: 'Canadian Dollar', locale: 'en-CA' },
-  { code: 'AUD', symbol: 'A$', label: 'Australian Dollar', locale: 'en-AU' },
-  { code: 'CHF', symbol: 'Fr', label: 'Swiss Franc', locale: 'de-CH' },
-  { code: 'CNY', symbol: '¥', label: 'Chinese Yuan', locale: 'zh-CN' },
-  { code: 'INR', symbol: '₹', label: 'Indian Rupee', locale: 'en-IN' },
-  { code: 'MXN', symbol: 'Mex$', label: 'Mexican Peso', locale: 'es-MX' },
-  { code: 'ARS', symbol: 'AR$', label: 'Argentine Peso', locale: 'es-AR' },
+  { code: 'USD', symbol: '$', label: 'Dólar Americano', locale: 'en-US' },
+  { code: 'EUR', symbol: '€', label: 'Euro', locale: 'pt-PT' },
 ];
 
-export function formatMoney(value, currencyCode = 'BRL') {
+export function formatMoney(value, currencyCode = 'MZN') {
   const c = CURRENCIES.find((x) => x.code === currencyCode) || CURRENCIES[0];
   try {
     return new Intl.NumberFormat(c.locale, {

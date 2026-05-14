@@ -24,7 +24,7 @@ function App() {
   };
 
   const handleReset = () => {
-    setState({ userName: '', currency: 'BRL', months: {} });
+    setState({ userName: '', currency: 'MZN', months: {} });
   };
 
   if (!state.userName) {
