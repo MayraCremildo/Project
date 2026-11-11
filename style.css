@@ -101,3 +101,13 @@ body { overflow-x: hidden; }
   .team-card img { height: 230px; }
   .service-card { gap: 10px; }
 }
+
+
+/* A primeira secção ocupa todo o ecrã em dispositivos móveis */
+@media (max-width: 760px) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+  }
+}
